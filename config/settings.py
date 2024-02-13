@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mdity!e^kx6)-dzi!tuuzf%w1@dp1%99=f9a@gsw#)4ayn3c-4'
+SECRET_KEY = 'django-insecure-^e+s&b@z&+e^he73-(*bx7_cr7a6hs#+04ri0!_!k)(6jt%fi$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,12 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # """ Start apps """
-    'main.apps.MainConfig',
-    # """ End apps """
-    # """ Start frameworks """
-    'rest_framework',
-    # """ End frameworks """
+    'account.apps.AccountConfig',
+    'dashboard.apps.DashboardConfig',
+    # ------------- apps -------------
+    "main.apps.MainConfig",
+    "main.apps.Dashbord",
+    "main.apps.accaunt",
+    # ------------- Libary -----------
+    "rest_framework",
+    'drf_yasg'
+
 ]
 
 MIDDLEWARE = [
@@ -122,8 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL =  'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+AUTH_USER_MODEL = 'main.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
