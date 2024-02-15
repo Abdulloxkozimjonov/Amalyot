@@ -37,12 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig',
-    'dashboard.apps.DashboardConfig',
     # ------------- apps -------------
     "main.apps.MainConfig",
-    "main.apps.Dashbord",
-    "main.apps.accaunt",
+    "dashboard.apps.DashboardConfig",
+    "accaunt.apps.AccauntConfig",
     # ------------- Libary -----------
     "rest_framework",
     'drf_yasg'
@@ -64,7 +62,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
