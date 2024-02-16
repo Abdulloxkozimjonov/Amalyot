@@ -155,3 +155,10 @@ class Outgoing_income(models.Model):
 class Incoming_income(models.Model):
     Incoming_income = models.IntegerField()
     bio = models.CharField(max_length=100)
+
+
+class Devices(models.Model):
+    number = models.IntegerField()
+    name = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
+    room = models.ForeignKey(to='Room', on_delete=models.PROTECT)
