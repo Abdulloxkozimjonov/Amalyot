@@ -18,5 +18,19 @@ class UserAdmin(UserAdmin):
 
 admin.site.register(models.Employee)
 admin.site.register(models.Room)
+admin.site.register(models.Income)
+admin.site.register(models.Payment)
+admin.site.register(models.Patients)
+admin.site.register(models.Patient_info)
+admin.site.register(models.Clinical_statistics)
 admin.site.register(models.Department)
+admin.site.register(models.Devices)
+admin.site.register(models.Outgoing_income)
+admin.site.register(models.Incoming_income)
+admin.site.register(models.Work_with_operations)
+admin.site.register(models.Achievements)
+admin.site.register(models.Cassa)
+admin.site.register(models.Comment)
+admin.site.register(models.Info_about_clinic)
+
 

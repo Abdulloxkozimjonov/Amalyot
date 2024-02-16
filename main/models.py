@@ -113,7 +113,7 @@ class Patients(models.Model):
     Suggestions = models.CharField(max_length=100)
     comments = models.CharField(max_length=100)
 
-class patient_info(models.Model):
+class Patient_info(models.Model):
     full_name = models.CharField(max_length=100)
     age = models.IntegerField()
     GENDER = (
@@ -162,3 +162,26 @@ class Devices(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     room = models.ForeignKey(to='Room', on_delete=models.PROTECT)
+
+
+class Cassa(models.Model):
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+
+
+class Comment(models.Model):
+    patient = models.ForeignKey(to='Patients', on_delete=models.CASCADE)
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_created=True)
+
+
+class Info_about_clinic(models.Model):
+    total_patients_number = models.IntegerField()
+    total_employee_number = models.IntegerField()
+    bio = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=13, validators=[
+        RegexValidator(
+            regex='^[\+]9{2}8{1}[0-9]{9}$',
+            message='Invalide phone number',
+            code='Invalid number'
+        )
+    ])
