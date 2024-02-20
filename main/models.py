@@ -16,11 +16,6 @@ class User(AbstractUser):
             regex='^[\+]9{2}8{1}[0-9]{9}$',
             message='Invalide phone number',
             code='Invalid number'
-        ),
-        RegexValidator(
-            regex='^9{2}8{1}[0-9]{9}$',
-            message='Invalide phone number',
-            code='Invalid number'
         )
     ])
     img= models.ImageField(upload_to='user-imgages/', validators=[
