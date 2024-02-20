@@ -25,4 +25,16 @@ urlpatterns = [
     path('update-equpment/', views.UpdateEqupment.as_view()),
     path('delete-equpment/', views.DeleteEqupment.as_view()),
 # End Equpment url
+
+# Start Work_with_operations url
+    path('create-equpment/', views.CreateWork_with_operations.as_view()),
+    path('update-equpment/', views.UpdateWork_with_operations.as_view()),
+    path('delete-equpment/', views.DeleteWork_with_operations.as_view()),
+# End Work_with_operations url
+
+# Start Clinical_statistics url
+    path('create-equpment/', views.CreateClinical_statistics.as_view()),
+    path('update-equpment/', views.Clinical_statistics.as_view()),
+    path('delete-equpment/', views.Clinical_statistics.as_view()),
+# End Clinical_statistics url
 ]

@@ -75,3 +75,41 @@ class DeleteEqupment(DestroyAPIView):
     serializer_class = serializers.EquipmentSerializer
 
 """ End CRUD Equpment """
+
+""" Start CRUD Work_with_operations """
+
+class CreateWork_with_operations(ListCreateAPIView):
+    queryset = models.Work_with_operations.objects.all()
+    serializer_class = serializers.Work_with_operationSerializer
+
+
+class UpdateWork_with_operations(UpdateAPIView):
+    queryset = models.Work_with_operations.objects.all()
+    serializer_class = serializers.Work_with_operationSerializer
+
+
+class DeleteWork_with_operations(DestroyAPIView):
+    queryset = models.Work_with_operations.objects.all()
+    serializer_class = serializers.Work_with_operationSerializer
+
+""" End CRUD Work_with_operations """
+
+
+""" Start CRUD Clinical_statistics """
+
+class CreateClinical_statistics(ListCreateAPIView):
+    queryset = models.Clinical_statistics.objects.all()
+    serializer_class = serializers.Clinical_statisticSerializer
+
+
+class UpdateClinical_statistics(UpdateAPIView):
+    queryset = models.Clinical_statistics.objects.all()
+    serializer_class = serializers.Clinical_statisticSerializer
+
+
+class DeleteClinical_statistics(DestroyAPIView):
+    queryset = models.Clinical_statistics.objects.all()
+    serializer_class = serializers.Clinical_statisticSerializer
+
+
+""" End CRUD Work_with_operations """
