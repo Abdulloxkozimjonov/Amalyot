@@ -18,6 +18,12 @@ class RoomSerializer(serializers.ModelSerializer):
         model = models.Room
         fields = "__all__"
 
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Department
+        fields = "__all__"
+
 class EquipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Equipment
