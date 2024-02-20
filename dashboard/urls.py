@@ -39,8 +39,8 @@ urlpatterns = [
 # End Clinical_statistics url
 
 # Start Payment url
-    path('create-clinical_statistics/', views.CreatePayment.as_view()),
-    path('update-clinical_statistics/<int:pk>/', views.UpdatePayment.as_view()),
-    path('delete-clinical_statistics/<int:pk>/', views.DeletePayment.as_view()),
+    path('create-payment/', views.CreatePayment.as_view()),
+    path('update-payment/<int:pk>/', views.UpdatePayment.as_view()),
+    path('delete-payment/<int:pk>/', views.DeletePayment.as_view()),
 # End Payment url
 ]
