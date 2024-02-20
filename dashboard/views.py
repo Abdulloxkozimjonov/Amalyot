@@ -112,4 +112,23 @@ class DeleteClinical_statistics(DestroyAPIView):
     serializer_class = serializers.Clinical_statisticSerializer
 
 
-""" End CRUD Work_with_operations """
+""" End CRUD Clinical_statistics """
+
+""" Start CRUD Payment """
+
+class CreatePayment(ListCreateAPIView):
+    queryset = models.Payment.objects.all()
+    serializer_class = serializers.PaymentSerializer
+
+
+class UpdatePayment(UpdateAPIView):
+    queryset = models.Payment.objects.all()
+    serializer_class = serializers.PaymentSerializer
+
+
+class DeletePayment(DestroyAPIView):
+    queryset = models.Payment.objects.all()
+    serializer_class = serializers.PaymentSerializer
+
+
+""" End CRUD Payment """
