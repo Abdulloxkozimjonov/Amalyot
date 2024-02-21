@@ -30,7 +30,7 @@ def singin_view(request):
                     'status' : status,
                     'message' : message
                 }
-        except User.DoesNoteExit:
+        except models.User.DoesNoteExit:
             status = 404
             message = 'This User is not defined '
             data = {
@@ -47,7 +47,7 @@ def singup_view(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
     phone_number = request.POST.get('phone_number')
-    new = User.objects.create_user(
+    new = models.User.objects.create_user(
         username = username,
         password = password,
         phone_number = phone_number
@@ -62,7 +62,7 @@ class UpdateUser(UpdateAPIView):
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def logoout(request):
+def log_out(request):
     logout(request)
     return Response({'data':'sucses'})
 

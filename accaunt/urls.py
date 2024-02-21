@@ -5,5 +5,5 @@ urlpatterns = [
     path("sing-up/", views.singup_view),
     path("sing-in/", views.singin_view),
     path("edit_user/", views.UpdateUser.as_view()),
-    path("logo-out/", views.logoout),
+    path("log-out/", views.log_out),
 ]
