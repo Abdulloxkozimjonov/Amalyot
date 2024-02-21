@@ -185,3 +185,25 @@ class Info_about_clinic(models.Model):
             code='Invalid number'
         )
     ])
+
+
+class Injury(models.Model):
+    name = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)
+
+
+class Attendance(models.Model):
+    employee = models.ForeignKey(to='Employee', on_delete=models.CASCADE)
+    date = models.DateField()
+    chek_in = models.TimeField(null=True, blank=True)
+    chek_out = models.TimeField(null=True, blank=True)
+
+    class Meta:
+        unique_together = ['employee', 'date']
+
+    def clean(self):
+        if self.chek_out and self.chek_out < self.chek_in:
+            raise ValidationError('Check-out time must be after chek-in time.')
+
+    def str(self):
+        return f'{self.employee.full_name} - {self.date}'

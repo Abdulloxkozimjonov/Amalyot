@@ -132,3 +132,104 @@ class DeletePayment(DestroyAPIView):
 
 
 """ End CRUD Payment """
+
+class CreateIncome(ListCreateAPIView):
+    queryset = models.Income.objects.all()
+    serializer_class = serializers.IncomeSerializer
+
+
+class UpdateIncome(UpdateAPIView):
+    queryset = models.Income.objects.all()
+    serializer_class = serializers.IncomeSerializer
+
+
+
+class DeleteIncome(DestroyAPIView):
+    queryset = models.Income.objects.all()
+    serializer_class = serializers.IncomeSerializer
+
+""" End CRUD Income """
+
+""" Create CRUD Attendance """
+
+class CreateAttendance(ListCreateAPIView):
+    queryset = models.Attendance.objects.all()
+    serializer_class = serializers.AttendanceSerializer
+
+""" End CRUD Attendance """
+
+
+""" Start CRUD Patients """
+class CreatePatients(ListCreateAPIView):
+    queryset = models.Patients.objects.all()
+    serializer_class = serializers.PatientsSerializer
+
+
+class UpdatePatients(UpdateAPIView):
+    queryset = models.Patients.objects.all()
+    serializer_class = serializers.PatientsSerializer
+
+
+
+class DeletePatients(DestroyAPIView):
+    queryset = models.Patients.objects.all()
+    serializer_class = serializers.PatientsSerializer
+
+""" End CRUD Patients """
+
+
+""" Start CRUD Patient_info """
+class CreatePatient_info(ListCreateAPIView):
+    queryset = models.Patient_info.objects.all()
+    serializer_class = serializers.Patient_infoSerializer
+
+
+class UpdatePatient_info(UpdateAPIView):
+    queryset = models.Patient_info.objects.all()
+    serializer_class = serializers.Patient_infoSerializer
+
+
+
+class DeletePatient_info(DestroyAPIView):
+    queryset = models.Patient_info.objects.all()
+    serializer_class = serializers.Patient_infoSerializer
+
+""" End CRUD Patient_info """
+
+
+""" Start CRUD Injury """
+class CreateInjury(ListCreateAPIView):
+    queryset = models.Injury.objects.all()
+    serializer_class = serializers.InjurySerializer
+
+
+class UpdateInjury(UpdateAPIView):
+    queryset = models.Patient_info.objects.all()
+    serializer_class = serializers.InjurySerializer
+
+
+
+class DeleteInjury(DestroyAPIView):
+    queryset = models.Injury.objects.all()
+    serializer_class = serializers.InjurySerializer
+
+""" End CRUD Injury """
+
+
+""" Start CRUD Devices """
+class CreateDevices(ListCreateAPIView):
+    queryset = models.Devices.objects.all()
+    serializer_class = serializers.DeviceSerializer
+
+
+class UpdateDevices(UpdateAPIView):
+    queryset = models.Devices.objects.all()
+    serializer_class = serializers.DeviceSerializer
+
+
+
+class DeleteDevices(DestroyAPIView):
+    queryset = models.Devices.objects.all()
+    serializer_class = serializers.DeviceSerializer
+
+""" End CRUD Devices """

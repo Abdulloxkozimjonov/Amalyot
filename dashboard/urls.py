@@ -43,4 +43,38 @@ urlpatterns = [
     path('update-payment/<int:pk>/', views.UpdatePayment.as_view()),
     path('delete-payment/<int:pk>/', views.DeletePayment.as_view()),
 # End Payment url
+
+# Start Attendance url
+    path('create-attendance/', views.CreateAttendance.as_view()),
+# End Attendance url
+
+# Start Income url
+    path('create-income/', views.CreateIncome.as_view()),
+    path('update-income/<int:pk>/', views.UpdateIncome.as_view()),
+    path('delete-income/<int:pk>/', views.DeleteIncome.as_view()),
+# End Income url
+
+# Start Patients url
+    path('create-patients/', views.CreatePatients.as_view()),
+    path('update-patients/<int:pk>/', views.UpdatePatients.as_view()),
+    path('delete-patients/<int:pk>/', views.DeletePatients.as_view()),
+# End Patients url
+
+# Start Patient_info url
+    path('create-patient_info/', views.CreatePatient_info.as_view()),
+    path('update-patient_info/<int:pk>/', views.UpdatePatient_info.as_view()),
+    path('delete-patient_info/<int:pk>/', views.DeletePatient_info.as_view()),
+# End Patient_info url
+
+# Start Devices url
+    path('create-devices/', views.CreateDevices.as_view()),
+    path('update-devices/<int:pk>/', views.UpdateDevices.as_view()),
+    path('delete-devices/<int:pk>/', views.DeleteDevices.as_view()),
+# End Injury url
+
+# Start Injury url
+    path('create-injury/', views.CreateInjury.as_view()),
+    path('update-injury/<int:pk>/', views.UpdateInjury.as_view()),
+    path('delete-injury/<int:pk>/', views.DeleteInjury.as_view()),
+# End Injury url
 ]

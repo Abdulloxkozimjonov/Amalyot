@@ -85,3 +85,15 @@ class Info_about_clinicSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Info_about_clinic
         fields = "__all__"
+
+
+class AttendanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Clinical_statistics
+        fields = "__all__"
+
+
+class InjurySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Injury
+        fields = "__all__"
