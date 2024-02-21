@@ -26,9 +26,7 @@ class User(AbstractUser):
         )
     ])
     bio = models.CharField(max_length=255)
-    birthday = models.DateField()
-    month_of_birth = models.DateField()
-    born_smelly = models.DateField()
+
 
 
 class Employee(models.Model):
