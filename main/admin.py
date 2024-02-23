@@ -32,5 +32,6 @@ admin.site.register(models.Achievements)
 admin.site.register(models.Cassa)
 admin.site.register(models.Comment)
 admin.site.register(models.Info_about_clinic)
+admin.site.register(models.Equipment)
 
 
