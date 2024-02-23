@@ -15,7 +15,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
-        depth = 1
+        depth = 2
         model = models.Room
         fields = "__all__"
 
