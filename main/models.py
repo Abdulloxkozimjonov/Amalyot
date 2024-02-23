@@ -31,7 +31,6 @@ class User(AbstractUser):
 
 class Employee(models.Model):
     user = models.ForeignKey(to= 'User', on_delete=models.PROTECT)
-    name = models.CharField(max_length=255, blank=False)
     experience= models.CharField(max_length=255)
     age = models.IntegerField(default=18)
     POSITION=(
