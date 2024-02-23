@@ -242,7 +242,7 @@ class DeletePatient_info(DestroyAPIView):
     serializer_class = serializers.Patient_infoSerializer
 
 
-class Pattient_info(ListAPIView):
+class Pattient_info_all(ListAPIView):
     queryset = models.Patient_info.objects.all()
     serializer_class = serializers.Patient_infoSerializer
 
