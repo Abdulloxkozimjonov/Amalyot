@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from main import models
 from main import serializers
-from rest_framework.generics import ListCreateAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.generics import ListCreateAPIView, UpdateAPIView, DestroyAPIView, ListAPIView
 
 """ Start CRUD Employee """
 class CreateEmployee(ListCreateAPIView):
@@ -15,6 +15,11 @@ class UpdateEmployee(UpdateAPIView):
 
 
 class DeleteEmployee(DestroyAPIView):
+    queryset = models.Employee.objects.all()
+    serializer_class = serializers.EmployeeSerializer
+
+
+class Employee_all(ListAPIView):
     queryset = models.Employee.objects.all()
     serializer_class = serializers.EmployeeSerializer
 
@@ -33,6 +38,10 @@ class UpdateRoom(UpdateAPIView):
 
 
 class DeleteRoom(DestroyAPIView):
+    queryset = models.Room.objects.all()
+    serializer_class = serializers.RoomSerializer
+
+class Room_all(ListAPIView):
     queryset = models.Room.objects.all()
     serializer_class = serializers.RoomSerializer
 
@@ -55,6 +64,11 @@ class DeleteDepartment(DestroyAPIView):
     queryset = models.Department.objects.all()
     serializer_class = serializers.DepartmentSerializer
 
+
+class Department_all(ListAPIView):
+    queryset = models.Department.objects.all()
+    serializer_class = serializers.DepartmentSerializer
+
 """ End CRUD Department """
 
 
@@ -74,6 +88,11 @@ class DeleteEqupment(DestroyAPIView):
     queryset = models.Equipment.objects.all()
     serializer_class = serializers.EquipmentSerializer
 
+
+class Equpment_all(ListAPIView):
+    queryset = models.Equipment.objects.all()
+    serializer_class = serializers.EquipmentSerializer
+
 """ End CRUD Equpment """
 
 """ Start CRUD Work_with_operations """
@@ -89,6 +108,11 @@ class UpdateWork_with_operations(UpdateAPIView):
 
 
 class DeleteWork_with_operations(DestroyAPIView):
+    queryset = models.Work_with_operations.objects.all()
+    serializer_class = serializers.Work_with_operationSerializer
+
+
+class Work_with_operations_all(ListAPIView):
     queryset = models.Work_with_operations.objects.all()
     serializer_class = serializers.Work_with_operationSerializer
 
@@ -112,6 +136,10 @@ class DeleteClinical_statistics(DestroyAPIView):
     serializer_class = serializers.Clinical_statisticSerializer
 
 
+class Clinical_statistics_all(ListAPIView):
+    queryset = models.Clinical_statistics.objects.all()
+    serializer_class = serializers.Clinical_statisticSerializer
+
 """ End CRUD Clinical_statistics """
 
 """ Start CRUD Payment """
@@ -131,6 +159,10 @@ class DeletePayment(DestroyAPIView):
     serializer_class = serializers.PaymentSerializer
 
 
+class Paymnent_all(ListAPIView):
+    queryset = models.Payment.objects.all()
+    serializer_class = serializers.PaymentSerializer
+
 """ End CRUD Payment """
 
 class CreateIncome(ListCreateAPIView):
@@ -148,11 +180,21 @@ class DeleteIncome(DestroyAPIView):
     queryset = models.Income.objects.all()
     serializer_class = serializers.IncomeSerializer
 
+
+class Income_all(ListAPIView):
+    queryset = models.Income.objects.all()
+    serializer_class = serializers.IncomeSerializer
+
 """ End CRUD Income """
 
 """ Create CRUD Attendance """
 
 class CreateAttendance(ListCreateAPIView):
+    queryset = models.Attendance.objects.all()
+    serializer_class = serializers.AttendanceSerializer
+
+
+class Attendance_all(ListAPIView):
     queryset = models.Attendance.objects.all()
     serializer_class = serializers.AttendanceSerializer
 
@@ -175,6 +217,11 @@ class DeletePatients(DestroyAPIView):
     queryset = models.Patients.objects.all()
     serializer_class = serializers.PatientsSerializer
 
+
+class Patients_all(ListAPIView):
+    queryset = models.Patients.objects.all()
+    serializer_class = serializers.PatientsSerializer
+
 """ End CRUD Patients """
 
 
@@ -191,6 +238,11 @@ class UpdatePatient_info(UpdateAPIView):
 
 
 class DeletePatient_info(DestroyAPIView):
+    queryset = models.Patient_info.objects.all()
+    serializer_class = serializers.Patient_infoSerializer
+
+
+class Pattient_info(ListAPIView):
     queryset = models.Patient_info.objects.all()
     serializer_class = serializers.Patient_infoSerializer
 
@@ -213,6 +265,11 @@ class DeleteInjury(DestroyAPIView):
     queryset = models.Injury.objects.all()
     serializer_class = serializers.InjurySerializer
 
+
+class Injury_all(ListAPIView):
+    queryset = models.Injury.objects.all()
+    serializer_class = serializers.InjurySerializer
+
 """ End CRUD Injury """
 
 
@@ -229,6 +286,11 @@ class UpdateDevices(UpdateAPIView):
 
 
 class DeleteDevices(DestroyAPIView):
+    queryset = models.Devices.objects.all()
+    serializer_class = serializers.DeviceSerializer
+
+
+class Devices_all(ListAPIView):
     queryset = models.Devices.objects.all()
     serializer_class = serializers.DeviceSerializer
 

@@ -15,6 +15,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Room
         fields = "__all__"
 
@@ -31,6 +32,7 @@ class EquipmentSerializer(serializers.ModelSerializer):
 
 class Work_with_operationSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Work_with_operations
         fields = "__all__"
 
@@ -42,11 +44,13 @@ class Clinical_statisticSerializer(serializers.ModelSerializer):
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Payment
         fields = "__all__"
 
 class PatientsSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Patients
         fields = "__all__"
 
@@ -63,6 +67,7 @@ class AchievmentSerializer(serializers.ModelSerializer):
 
 class IncomeSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 2
         model = models.Income
         fields = "__all__"
 
@@ -73,11 +78,13 @@ class Incoming_incomeSerializer(serializers.ModelSerializer):
 
 class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Devices
         fields = "__all__"
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Comment
         fields = "__all__"
 
@@ -89,6 +96,7 @@ class Info_about_clinicSerializer(serializers.ModelSerializer):
 
 class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = models.Clinical_statistics
         fields = "__all__"
 
