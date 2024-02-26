@@ -35,6 +35,10 @@ class Employee(models.Model):
     age = models.IntegerField(default=18)
     POSITION=(
         ('Director', "director"),
+        ('Manager', "manager"),
+        ('Doctor', "doctor"),
+        ('Hamshira', "hamshira"),
+
     )
     position = models.CharField(max_length=255, choices=POSITION)
     salary = models.DecimalField(max_digits=10, decimal_places =2)

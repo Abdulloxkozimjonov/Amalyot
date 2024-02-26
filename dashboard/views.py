@@ -295,3 +295,8 @@ class Devices_all(ListAPIView):
     serializer_class = serializers.DeviceSerializer
 
 """ End CRUD Devices """
+
+
+
+
+
