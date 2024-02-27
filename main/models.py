@@ -209,3 +209,7 @@ class Attendance(models.Model):
 
     def str(self):
         return f'{self.employee.full_name} - {self.date}'
+
+
+
+
