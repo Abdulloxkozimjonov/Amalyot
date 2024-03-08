@@ -279,6 +279,7 @@ def operation_by_room(request):
 
 
 
+
 @api_view(["GET"])
 def equipment_by_name(request):
     name = request.GET.get("name")

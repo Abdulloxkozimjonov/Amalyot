@@ -29,10 +29,19 @@ class User(AbstractUser):
 
 
 
+class Department(models.Model):
+    name = models.CharField(max_length=255)
+
+
+
+
 class Employee(models.Model):
     user = models.ForeignKey(to= 'User', on_delete=models.PROTECT)
-    experience= models.CharField(max_length=255)
+    experience=models.CharField(max_length=255)
     age = models.IntegerField(default=18)
+    status = models.CharField()
+    work_time = models.TimeField()
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
     POSITION=(
         ('Director', "director"),
         ('Manager', "manager"),
@@ -42,7 +51,9 @@ class Employee(models.Model):
     )
     position = models.CharField(max_length=255, choices=POSITION)
     salary = models.DecimalField(max_digits=10, decimal_places =2)
-    room = models.ForeignKey(to= 'Room', on_delete=models.PROTECT)
+    room = models.ForeignKey(to='Room', on_delete=models.PROTECT)
+
+
 
 
 class Room(models.Model):
@@ -52,8 +63,7 @@ class Room(models.Model):
     equipment = models.ForeignKey(to = 'Equipment', on_delete=models.PROTECT)
 
 
-class Department(models.Model):
-    name = models.CharField(max_length=255)
+
 
 
 class Equipment(models.Model):
