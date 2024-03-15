@@ -27,6 +27,11 @@ class User(AbstractUser):
     ])
     bio = models.CharField(max_length=255)
 
+    class Meta(AbstractUser.Meta):
+        swappable= 'AUTH_USER_MODEL'
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+
 
 
 class Employee(models.Model):
