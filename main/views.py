@@ -255,7 +255,7 @@ def operation_by_start_time(request):
 
 
 @api_view(["GET"])
-def operation_by_en_time(request):
+def operation_by_end_time(request):
     end_time = request.GET.get("end_time")
     operation = models.Operation.objects.filter(end_time=end_time)
     ser = serializers.OperationSerializer(operation)

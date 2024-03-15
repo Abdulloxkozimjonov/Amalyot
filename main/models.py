@@ -31,8 +31,10 @@ class User(AbstractUser):
 
 class Employee(models.Model):
     user = models.ForeignKey(to= 'User', on_delete=models.PROTECT)
+    full_name = models.CharField(max_length= 255, blank = False)
     experience= models.CharField(max_length=255)
     age = models.IntegerField(default=18)
+    status  = models.CharField(max_length = 255)
     POSITION=(
         ('Director', "director"),
         ('Manager', "manager"),
@@ -43,6 +45,8 @@ class Employee(models.Model):
     position = models.CharField(max_length=255, choices=POSITION)
     salary = models.DecimalField(max_digits=10, decimal_places =2)
     room = models.ForeignKey(to= 'Room', on_delete=models.PROTECT)
+    work_time = models.TimeField()
+    dapartment = models.ForeignKey(to= 'Department', on_delete = models.CASCADE)
 
 
 class Room(models.Model):
@@ -50,6 +54,9 @@ class Room(models.Model):
     room_type = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     equipment = models.ForeignKey(to = 'Equipment', on_delete=models.PROTECT)
+    capacity = models.CharField(max_length= 255)
+    status = models.CharField(max_length = 255)
+    is_booked = models.BooleanField(default = False)
 
 
 class Department(models.Model):
@@ -64,9 +71,14 @@ class Equipment(models.Model):
 
 class Work_with_operations(models.Model):
     name = models.CharField(max_length=100)
+    employee = models.ForeignKey(to='Employee', on_delete=models.CASCADE)
+    patient = models.ForeignKey(to='Patient', on_delete=models.CASCADE)
+    room = models.ForeignKey(to='Room', on_delete=models.CASCADE)
     type = models.CharField(max_length=100)
     cost = models.PositiveIntegerField()
-    time = models.TimeField()
+    date_time = models.DateTimeField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
     room_number = models.ForeignKey(to='Room', on_delete=models.CASCADE)
 
 
@@ -75,6 +87,7 @@ class Clinical_statistics(models.Model):
 
 
 class Payment(models.Model):
+    patient = models.ForeignKey(to='Patient', on_delete= models.CASCADE)
     user = models.ForeignKey(to='User', on_delete=models.CASCADE)
     PAYMENT_TYPE=(
         ('Nakd pull', 'Nakd pull'),
@@ -85,6 +98,7 @@ class Payment(models.Model):
     payment_day = models.DateField()
     date = models.DateField()
     qr_code = models.ImageField(upload_to='qr_codes/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now = True)
 
     def save(self, *args, **kwargs):
         qr = qrcode.QRCode(
@@ -109,11 +123,29 @@ class Payment(models.Model):
 
 
 class Patients(models.Model):
-    doktor = models.ForeignKey(to='User', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
+    full_name = models.CharField(max_length = 255, blank = False)
+    doctor = models.ForeignKey(to='User', on_delete=models.CASCADE)
+    GENDER = (
+        ('Erkak', 'Erkak'),
+        ('Ayol', 'Ayol')
+    )
+    gander = models.CharField(max_length = 100, choices = GENDER, blank = False)
+    phone_number = models.CharField(max_length=100, validators = [
+        RegexValidator(
+            regex='^[\+]9{2}8{1}[0-9]{9}$',
+            message='Invalide phone number',
+            code='Invalid number'
+        )
+    ])
+    room = models.ForeignKey(to='Room', on_delete = models.CASCADE)
     complaint = models.CharField(max_length=100)
     Suggestions = models.CharField(max_length=100)
     comments = models.CharField(max_length=100)
+    PAYMENT_STATUS = (
+        ('1', 'Naqt pull'),
+        ('2', 'Karta orqali'),
+    )
+    payment_status = models.IntegerField(choices = PAYMENT_STATUS)
 
 class Patient_info(models.Model):
     full_name = models.CharField(max_length=100)
@@ -145,16 +177,20 @@ class Achievements(models.Model):
 class Income(models.Model):
     user = models.ForeignKey(to='User', on_delete=models.PROTECT)
     day = models.DateField()
+    date = models.DateField(auto_now = True)
+    amount = models.PositiveIntegerField()
     gross_profit = models.PositiveIntegerField()
     outgoing_income = models.ForeignKey(to='Outgoing_income', on_delete=models.PROTECT)
     incoming_revenue = models.ForeignKey(to='Incoming_income', on_delete=models.PROTECT)
 
 class Outgoing_income(models.Model):
+    amount = models.PositiveIntegerField()
     Outgoing_income = models.IntegerField()
     bio = models.CharField(max_length=100)
 
 
 class Incoming_income(models.Model):
+    amount = models.PositiveIntegerField()
     Incoming_income = models.IntegerField()
     bio = models.CharField(max_length=100)
 
@@ -173,6 +209,7 @@ class Cassa(models.Model):
 class Comment(models.Model):
     patient = models.ForeignKey(to='Patients', on_delete=models.CASCADE)
     comment = models.TextField()
+    status = models.CharField(max_length= 255)
     created_at = models.DateTimeField(auto_created=True)
 
 
